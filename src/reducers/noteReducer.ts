@@ -16,9 +16,9 @@ export const noteSlice = createSlice({
         notes_created: (state, action: PayloadAction<Note>) => {
             state.value.push(action.payload)
         },
-        notes_toggle_importance: (state, action: PayloadAction<Note>) => {
-            const { id } = action.payload;
-            const note = state.value.find(note => note.id === id);
+        notes_toggle_importance: (state, action: PayloadAction<Number>) => {
+            //const { id } = action.payload;
+            const note = state.value.find(note => note.id === action.payload);
             if (note) { note.important = !note.important }
         }
     },
