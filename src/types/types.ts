@@ -8,3 +8,9 @@ export type NotesState = {
     value: Note[];
 };
 
+type Filter = "all" | "important" | "not_important";
+
+export type FiltersState = {
+    value: Filter;
+};
+
