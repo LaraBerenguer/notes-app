@@ -1,6 +1,6 @@
 import NotesList from "@/components/NotesList";
 import styles from "./page.module.css";
-import CreateNoteForm from "@/components/addNoteForm";
+import CreateNoteForm from "@/components/CreateNote";
 
 export default function Home() {
   return (
