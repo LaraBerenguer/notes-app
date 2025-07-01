@@ -1,4 +1,4 @@
-import { Note, NotesState } from "@/types/types";
+import { Note } from "@/types/types";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { initialState } from "@/data/mockNotes";
 
