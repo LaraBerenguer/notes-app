@@ -1,4 +1,4 @@
-import noteReducer from "./noteReducer";
+import noteReducer, { notes_toggle_importance } from "./noteReducer";
 
 describe("noteReducer", () => {
     test("returns new state after toggling importance", () => {
@@ -17,18 +17,12 @@ describe("noteReducer", () => {
             ]
         };
 
-        const action = {
-            type: "notes_toggle_importance",
-            payload: {
-                id: 1,
-                important: false,
-                content: "Note test"
-            }
-        };
+        const action = notes_toggle_importance(1);
         const newState = noteReducer(state, action);
-        expect(newState).toHaveLength(2);
-        expect(state.value[0].important).toBe(false);
+
+        expect(newState.value).toHaveLength(2);
         expect(newState.value[0].important).toBe(true);
         expect(newState.value[1].important).toBe(true);
+        expect(state.value[0].important).toBe(false);
     });
 });
