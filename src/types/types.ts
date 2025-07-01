@@ -4,3 +4,7 @@ export type Note = {
     content: String;
 };
 
+export type NotesState = {
+    value: Note[];
+};
+
