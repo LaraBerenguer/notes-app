@@ -1,9 +1,6 @@
 import { Note, NotesState } from "@/types/types";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-const initialState: NotesState = {
-    value: [],
-};
+import { initialState } from "@/data/mockNotes";
 
 export const noteSlice = createSlice({
     name: 'notes',
