@@ -1,18 +1,13 @@
+import NotesList from "@/components/NotesList";
 import styles from "./page.module.css";
-import { store } from "../store/index";
-import { Note } from "@/types/types";
+import CreateNoteForm from "@/components/addNoteForm";
 
 export default function Home() {
-  const state: Note[] = store.getState();
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {state.map(note => {
-          return <li key={note.id}>
-            {note.content}
-            <b>{note.important ? " (important)" : ""}</b>
-          </li>
-        })}
+        <CreateNoteForm />
+        <NotesList />
       </main>
     </div>
   );
