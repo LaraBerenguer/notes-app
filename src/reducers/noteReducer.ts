@@ -6,6 +6,9 @@ export const noteSlice = createSlice({
     name: 'notes',
     initialState,
     reducers: {
+        notes_init: (state, action: PayloadAction<Note[]>) => {
+            state.value = action.payload;
+        },
         notes_created: (state, action: PayloadAction<Note>) => {
             state.value.push(action.payload)
         },
@@ -17,5 +20,5 @@ export const noteSlice = createSlice({
     },
 });
 
-export const { notes_created, notes_toggle_importance } = noteSlice.actions;
+export const { notes_init, notes_created, notes_toggle_importance } = noteSlice.actions;
 export default noteSlice.reducer;
