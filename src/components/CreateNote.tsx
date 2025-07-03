@@ -1,26 +1,20 @@
 "use client";
-import { notes_created } from "@/reducers/noteReducer";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
+import useCreateNote from "@/hooks/useCreateNote";
 
 const CreateNoteForm = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const [value, setValue] = useState<string>("")
-
-    const newId = () => {
-        return Math.floor(Math.random() * 99999);
-    };
+    const [value, setValue] = useState<string>("");
+    const addNewNote = useCreateNote();
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!value.trim()) { return }
 
-        dispatch(notes_created({
-            id: newId(),
+        const newNote = {
             important: false,
             content: value,
-        }))
+        };
+        addNewNote(newNote)
         setValue("")
     };
 
