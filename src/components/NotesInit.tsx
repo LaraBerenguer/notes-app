@@ -1,6 +1,6 @@
 "use client";
 import { Note } from "@/types/types";
-import { useNotesInit } from "@/hooks/useNotesInit";
+import useNotesInit from "@/hooks/useNotesInit";
 
 interface NotesInitProps {
     notes: Note[]
