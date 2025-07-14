@@ -26,7 +26,8 @@ const NotesList = () => {
             {
                 filteredNotes.map(note =>
                 (<li key={note.id} onClick={() => handleImportance(note.id!)}>
-                    {note.content}
+                    <b>{note.title}</b>
+                    <p>{note.content}</p>
                     <b>{note.important ? " (important)" : ""}</b>
                 </li>
                 ))
