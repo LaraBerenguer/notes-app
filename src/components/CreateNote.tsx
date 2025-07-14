@@ -25,9 +25,12 @@ const CreateNoteForm = () => {
         <form onSubmit={handleSubmit}>
             <label>
                 Add Note
-                <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
+                <br></br>
                 <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>
+                <br></br>
+                <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
             </label>
+            <br></br>
             <button id="addNoteButton">Add</button>
         </form>
     );
