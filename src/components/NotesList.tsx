@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { Filter, Note } from "@/types/types";
 import { notes_toggle_importance } from "@/reducers/noteReducer";
+import NoteCard from "./NoteCard";
 
 const NotesList = () => {
     const notes: Note[] = useSelector((state: RootState) => state.notes.value);
@@ -25,12 +26,7 @@ const NotesList = () => {
         <section>
             {
                 filteredNotes.map(note =>
-                (<li key={note.id} onClick={() => handleImportance(note.id!)}>
-                    <b>{note.title}</b>
-                    <p>{note.content}</p>
-                    <b>{note.important ? " (important)" : ""}</b>
-                </li>
-                ))
+                    (<NoteCard key={note.id} note={note} onClick={() => handleImportance(note.id!)} />))
             }
         </section>
     );
