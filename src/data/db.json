@@ -3,21 +3,25 @@
     {
       "id": "1",
       "important": true,
+      "title": "Redux",
       "content": "Learn Redux"
     },
     {
       "id": "2",
       "important": false,
+      "title": "Save Nigth City",
       "content": "Play some Cyberpunk 2077"
     },
     {
       "id": "3",
       "important": true,
+      "title": "Portfolio",
       "content": "Create a portfolio"
     },
     {
       "id": "f819",
       "important": false,
+      "title": "Hi",
       "content": "Holaaaaaa"
     }
   ]

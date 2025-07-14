@@ -1,7 +1,8 @@
 export type Note = {
     id?: number;
     important: boolean;
-    content: String;
+    title: string;
+    content: string;
 };
 
 export type NotesState = {
