@@ -8,10 +8,10 @@ type NoteCardProps = {
 
 const NoteCard = ({ note, onClick }: NoteCardProps) => {
     return (
-        <div style={{ border: "2px solid black", margin: "2px" }} onClick={onClick}>
-            <section id="title"><strong>{note.title}</strong></section>
-            <section id="content">{note.content}</section>
-            <section id="important"><b>{note.important ? " (important)" : ""}</b></section>
+        <div className="border border-gray-300 p-4 rounded-lg bg-transparent cursor-pointer transition hover:shadow" onClick={onClick}>
+            <section id="title" className="text-lg font-semibold mb-1">{note.title}</section>
+            <section id="content" className="text-sm text-gray-700">{note.content}</section>
+            <section id="important" className="text-xs font-bold text-red-500">{note.important ? " (important)" : ""}</section>
         </div>
     )
 };

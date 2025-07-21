@@ -31,7 +31,7 @@ const CreateNoteForm = () => {
                 <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
             </label>
             <br></br>
-            <button id="addNoteButton">Add</button>
+            <button id="addNoteButton" className="hover:cursor-pointer">Add</button>
         </form>
     );
 };
