@@ -22,16 +22,12 @@ const CreateNoteForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Add Note
-                <br></br>
-                <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>
-                <br></br>
+        <form className="flex flex-col gap-2 border-2 border-gray-100 p-4 rounded-lg bg-transparent" onSubmit={handleSubmit}>
+            <label className="create-note-inputs flex flex-col gap-2"> 
+                <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>                
                 <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
-            </label>
-            <br></br>
-            <button id="addNoteButton" className="hover:cursor-pointer">Add</button>
+            </label>            
+            <button id="addNoteButton" className="px-3 py-1 rounded-md border-2 border-gray-100 bg-transparent hover:bg-gray-100 hover:cursor-pointer text-sm transition">Add</button>
         </form>
     );
 };
