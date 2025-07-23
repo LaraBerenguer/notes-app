@@ -6,19 +6,29 @@ const Filter = () => {
     const dispatch = useDispatch();   
 
     return (
-        <form>
-            <fieldset>
-                <legend>Filter notes:</legend>
-                <div>
-                    <input type="radio" id="all" name="filter" onChange={() => dispatch(filter_all())} />
-                    <label htmlFor="all">All</label>
-                    <input type="radio" id="important" name="filter" onChange={() => dispatch(filter_important())} />
-                    <label htmlFor="important">Important</label>
-                    <input type="radio" id="not-important" name="filter" onChange={() => dispatch(filter_not_important())} />
-                    <label htmlFor="not-important">Not important</label>
-                </div>
-            </fieldset>
-        </form>
+        <div className="notes-filter flex gap-2">
+            <button
+                type="button"
+                className="px-3 py-1 rounded-md border-2 border-gray-100 bg-transparent hover:bg-gray-100 focus:bg-gray-100 text-sm font-medium transition act"
+                onClick={() => dispatch(filter_all())}
+            >
+                All
+            </button>
+            <button
+                type="button"
+                className="px-3 py-1 rounded-md border-2 border-gray-100 bg-transparent hover:bg-gray-100 focus:bg-gray-100 text-sm font-medium transition"
+                onClick={() => dispatch(filter_important())}
+            >
+                Important
+            </button>
+            <button
+                type="button"
+                className="px-3 py-1 rounded-md border-2 border-gray-100 bg-transparent hover:bg-gray-100 focus:bg-gray-100 text-sm font-medium transition"
+                onClick={() => dispatch(filter_not_important())}
+            >
+                Not important
+            </button>
+        </div>
     );
 };
 
