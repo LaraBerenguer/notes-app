@@ -7,11 +7,13 @@ describe("noteReducer", () => {
                 {
                     id: 1,
                     important: false,
+                    title: "Title 1",
                     content: "Note test"
                 },
                 {
                     id: 2,
                     important: true,
+                    title: "Title 1",
                     content: "Note test 2"
                 },
             ]
