@@ -8,7 +8,7 @@ const useNotesInit = (notes: Note[]) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(notes_init(notes))
-    }, [notes]);
+    }, []);
 };
 
 export default useNotesInit;

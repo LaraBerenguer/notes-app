@@ -16,9 +16,12 @@ export const noteSlice = createSlice({
             //const { id } = action.payload;
             const note = state.value.find(note => note.id === action.payload);
             if (note) { note.important = !note.important }
+        },
+        notes_deleted: (state, action: PayloadAction<Number>) => {
+            state.value = state.value.filter(note => note.id != action.payload);
         }
     },
 });
 
-export const { notes_init, notes_created, notes_toggle_importance } = noteSlice.actions;
+export const { notes_init, notes_created, notes_toggle_importance, notes_deleted } = noteSlice.actions;
 export default noteSlice.reducer;

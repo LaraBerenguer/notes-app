@@ -4,6 +4,7 @@ import { RootState } from "../store/store";
 import { Filter, Note } from "@/types/types";
 import { notes_toggle_importance } from "@/reducers/noteReducer";
 import NoteCard from "./NoteCard";
+import useDeleteNote from "@/hooks/useDeleteNote";
 
 const NotesList = () => {
     const notes: Note[] = useSelector((state: RootState) => state.notes.value);
@@ -20,13 +21,19 @@ const NotesList = () => {
         dispatch(notes_toggle_importance(id))
     };
 
+    const deleteCurrentNote = useDeleteNote()
+
+    const handleDelete = (id: number) => {
+        deleteCurrentNote(id)
+    }
+
     const filteredNotes = getFilteredNotes(notes, filter);
 
     return (
         <section className="notes-list flex flex-col gap-2">
             {
                 filteredNotes.map(note =>
-                    (<NoteCard key={note.id} note={note} onClick={() => handleImportance(note.id!)} />))
+                    (<NoteCard key={note.id} note={note} onClick={() => handleImportance(note.id)} onDelete={handleDelete} />))
             }
         </section>
     );
