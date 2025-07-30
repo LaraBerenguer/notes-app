@@ -17,3 +17,11 @@ export const createNote = async (note: Note): Promise<Note> => {
   return response.json();
 };
 
+export const deleteNote = async (id: Number): Promise<Number> => {
+  const response = await fetch(`http://localhost:3001/notes/${id}`, {
+    method: 'DELETE'
+  });
+  
+  return response.status;
+};
+
