@@ -16,6 +16,9 @@ export const noteSlice = createSlice({
             //const { id } = action.payload;
             const note = state.value.find(note => note.id === action.payload);
             if (note) { note.important = !note.important }
+        },
+        notes_deleted: (state, action: PayloadAction<Number>) => {
+            state.value.filter(note => note.id != action.payload);
         }
     },
 });
