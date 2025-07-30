@@ -5,9 +5,9 @@ import { AppDispatch } from "@/store/store";
 import { Note } from "@/types/types";
 import { useDispatch } from "react-redux";
 
-const useDeleteNote = (id: Number) => {
+const useDeleteNote = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const deleteExistingNote = async (note: Note) => {
+    const deleteExistingNote = async (id: Number) => {
         try {
             const status = await deleteNote(id);
             if (status === 200 || status === 204) {
