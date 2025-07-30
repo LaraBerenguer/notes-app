@@ -1,11 +1,11 @@
-import { Note } from "@/types/types";
+import { NewNote, Note } from "@/types/types";
 
 export const getNotes = async (): Promise<Note[]> => {
   const response = await fetch("http://localhost:3001/notes");
   return response.json();
 };
 
-export const createNote = async (note: Note): Promise<Note> => {
+export const createNote = async (note: NewNote): Promise<Note> => {
   const response = await fetch("http://localhost:3001/notes", {
     method: 'POST',
     headers: {

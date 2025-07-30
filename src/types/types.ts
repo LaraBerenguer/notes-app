@@ -1,9 +1,12 @@
-export type Note = {
-    id?: number;
+export type NewNote = {
     important: boolean;
     title: string;
     content: string;
 };
+
+export type Note = NewNote & {
+    id: number
+}
 
 export type NotesState = {
     value: Note[];
