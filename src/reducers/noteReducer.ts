@@ -19,9 +19,13 @@ export const noteSlice = createSlice({
         },
         notes_deleted: (state, action: PayloadAction<Number>) => {
             state.value = state.value.filter(note => note.id != action.payload);
+        },
+        notes_edited: (state, action: PayloadAction<Note>) => {
+            const index = state.value.findIndex(note => note.id === action.payload.id)
+            if (index !== -1) { state.value[index] = action.payload }
         }
     },
 });
 
-export const { notes_init, notes_created, notes_toggle_importance, notes_deleted } = noteSlice.actions;
+export const { notes_init, notes_created, notes_toggle_importance, notes_deleted, notes_edited } = noteSlice.actions;
 export default noteSlice.reducer;
