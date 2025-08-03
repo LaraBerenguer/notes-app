@@ -24,9 +24,10 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
     };
 
     const saveEdit = () => {
-        //to do validation
-        //const validTitle = editTitle.
-        onEdit(note.id, { title: editTitle, content: editContent });
+        //validation
+        const newTitle = editTitle?.trim() === "" ? note.title : editTitle;
+        const newContent = editContent?.trim() === "" ? note.content : editContent;
+        onEdit(note.id, { title: newTitle, content: newContent });
         setIsEditing(false);
     };
 
