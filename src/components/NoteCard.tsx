@@ -4,6 +4,7 @@ import ImportantIcon from "./ImportantIcon";
 import { Pencil, Trash } from "lucide-react";
 import { useState } from "react";
 import Modal from "./Modal";
+import NoteMenu from "./NoteMenu";
 
 type NoteCardProps = {
     note: Note;
@@ -33,7 +34,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
 
     return (
         <div className="note-card flex items-center border-2 border-gray-100 p-4 rounded-lg bg-transparent" onClick={onClick}>
-            <section>
+            <section id="note-card--content">
                 {isEditing ? (
                     <div className="flex flex-col">
                         <input
@@ -59,17 +60,8 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
                 )}
 
             </section>
-            <section id="important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
-            <section id="delete-note">
-                <button>
-                    <Trash strokeWidth={1} size={18} onClick={(e) => { e.stopPropagation(); setIsModalOpen(true) }} />
-                </button>
-            </section>
-            <section id="edit-note">
-                <button>
-                    <Pencil strokeWidth={1} size={18} onClick={(e) => { e.stopPropagation(); setIsEditing(true) }} />
-                </button>
-            </section>
+            <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
+            <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)}/></section>
 
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <h4 className="text-lg font-semibold mb-2">Delete note?</h4>
