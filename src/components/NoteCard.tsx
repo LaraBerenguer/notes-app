@@ -24,8 +24,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
         setIsModalOpen(false);
     };
 
-    const saveEdit = () => {
-        //validation
+    const saveEdit = () => {        
         const newTitle = editTitle?.trim() === "" ? note.title : editTitle;
         const newContent = editContent?.trim() === "" ? note.content : editContent;
         onEdit(note.id, { title: newTitle, content: newContent });

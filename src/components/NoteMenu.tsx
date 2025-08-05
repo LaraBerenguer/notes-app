@@ -9,8 +9,7 @@ type NoteMenuProps = {
 const NoteMenu = ({ onEdit, onDelete }: NoteMenuProps) => {
     const [open, setOpen] = useState<boolean>(false);
     const menuRef = useRef<HTMLDivElement>(null);
-
-    // Cierra el menú si se hace clic fuera
+    
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
