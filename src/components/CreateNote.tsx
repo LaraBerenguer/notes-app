@@ -21,8 +21,16 @@ const CreateNoteForm = () => {
         setNoteTitle("");
     };    
 
+    const handleBlur = (e: React.FocusEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const nextFocused = e.relatedTarget as HTMLElement | null;        
+        if (!nextFocused || !e.currentTarget.contains(nextFocused)) {
+            handleSubmit(e);
+        }
+    }
+
     return (
-        <form className="flex flex-col gap-2 border-2 border-gray-100 p-4 rounded-lg bg-transparent" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-2 border-2 border-gray-100 p-4 rounded-lg bg-transparent" onSubmit={handleSubmit} onBlur={handleBlur}>
             <label className="create-note-inputs flex flex-col gap-2">
                 <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>
                 <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
