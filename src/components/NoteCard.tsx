@@ -24,7 +24,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
         setIsModalOpen(false);
     };
 
-    const saveEdit = () => {        
+    const saveEdit = () => {
         const newTitle = editTitle?.trim() === "" ? note.title : editTitle;
         const newContent = editContent?.trim() === "" ? note.content : editContent;
         onEdit(note.id, { title: newTitle, content: newContent });
@@ -32,7 +32,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
     };
 
     return (
-        <div className="note-card flex items-center border-2 border-gray-100 p-4 rounded-lg bg-transparent" onClick={onClick}>
+        <div className="note-card flex flex-col w-[250px] border-2 border-gray-100 p-4 rounded-lg bg-transparent" onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
                     <div className="flex flex-col">
@@ -59,8 +59,11 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
                 )}
 
             </section>
-            <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
-            <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)}/></section>
+            <section id="note-card--side" className="flex items-center">
+                <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
+                <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} /></section>
+            </section>
+
 
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <h4 className="text-lg font-semibold mb-2">Delete note?</h4>

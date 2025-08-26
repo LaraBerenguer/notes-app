@@ -35,7 +35,7 @@ const NotesList = () => {
     const filteredNotes = getFilteredNotes(notes, filter);
 
     return (
-        <section className="notes-list flex flex-col gap-2">
+        <section className="notes-list flex flex-col gap-2 flex-wrap">
             {
                 filteredNotes.map(note =>
                     (<NoteCard key={note.id} note={note} onClick={() => handleImportance(note.id)} onDelete={handleDelete} onEdit={handleEdit} />))
