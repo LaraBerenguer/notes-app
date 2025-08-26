@@ -1,7 +1,6 @@
 "use client"
 import { Note } from "@/types/types";
 import ImportantIcon from "./ImportantIcon";
-import { Pencil, Trash } from "lucide-react";
 import { useState } from "react";
 import Modal from "./Modal";
 import NoteMenu from "./NoteMenu";
