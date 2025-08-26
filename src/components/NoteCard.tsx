@@ -35,29 +35,31 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
         <div className="note-card flex flex-col w-[250px] border-2 border-gray-100 p-4 rounded-lg bg-transparent" onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <input
-                            className="text-lg font-semibold mb-1"
+                            className="text-lg font-semibold border-b"
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             placeholder={note.title}
                         />
                         <textarea
-                            className="text-sm text-gray-700"
+                            className="text-sm text-gray-700 resize-none"
                             value={editContent}
                             onChange={e => setEditContent(e.target.value)}
                             placeholder={note.content}
                         />
-                        <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit}>Save</button>
-                        <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
+                        <div className="note-card--buttons flex gap-2 mt-2">
+                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit}>Save</button>
+                            <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
+                        </div>
+
                     </div>
                 ) : (
                     <>
                         <section id="title" className="text-lg font-semibold mb-1">{note.title}</section>
-                        <section id="content" className="text-sm text-gray-700">{note.content}</section>
+                        <section id="content" className="text-sm text-gray-700 whitespace-pre-line">{note.content}</section>
                     </>
                 )}
-
             </section>
             <section id="note-card--side" className="flex items-center">
                 <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
