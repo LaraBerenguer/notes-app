@@ -6,6 +6,7 @@ import { notes_toggle_importance } from "@/reducers/noteReducer";
 import NoteCard from "./NoteCard";
 import useDeleteNote from "@/hooks/useDeleteNote";
 import useEditNote from "@/hooks/useEditNote";
+import styles from "./NotesList.module.css";
 
 const NotesList = () => {
     const notes: Note[] = useSelector((state: RootState) => state.notes.value);
@@ -35,7 +36,7 @@ const NotesList = () => {
     const filteredNotes = getFilteredNotes(notes, filter);
 
     return (
-        <section className="notes-list flex flex-col gap-2 flex-wrap">
+        <section id="notes-list" className={styles.noteList}>
             {
                 filteredNotes.map(note =>
                     (<NoteCard key={note.id} note={note} onClick={() => handleImportance(note.id)} onDelete={handleDelete} onEdit={handleEdit} />))
