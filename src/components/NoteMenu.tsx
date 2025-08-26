@@ -25,13 +25,13 @@ const NoteMenu = ({ onEdit, onDelete }: NoteMenuProps) => {
     }, [open]);
 
     return (
-        <div ref={menuRef} className="relative">
+        <div ref={menuRef} className="relative flex items-center">
             <button
-                aria-label="Opciones"
-                onClick={e => { e.stopPropagation(); setOpen(!open); }}
-                className="ml-2"
+            aria-label="Opciones"
+            onClick={e => { e.stopPropagation(); setOpen(!open); }}
+            className="ml-2 flex items-center justify-center"
             >
-                <MoreVertical strokeWidth={1} size={18} />
+            <MoreVertical strokeWidth={1} size={18} />
             </button>
             {open && (
                 <div className="absolute left-0 top-8 z-10 bg-white border border-1 border-gray-100 rounded shadow-md text-sm flex flex-col min-w-[120px]">
