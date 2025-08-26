@@ -32,7 +32,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
     };
 
     return (
-        <div className="note-card flex flex-col border-2 border-gray-100 p-4 rounded-lg bg-transparent w-full" onClick={onClick}>
+        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg bg-transparent w-full" onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
                     <div className="flex flex-col gap-2">
