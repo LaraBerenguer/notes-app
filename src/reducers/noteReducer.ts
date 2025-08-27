@@ -23,6 +23,10 @@ export const noteSlice = createSlice({
         notes_edited: (state, action: PayloadAction<Note>) => {
             const index = state.value.findIndex(note => note.id === action.payload.id)
             if (index !== -1) { state.value[index] = action.payload }
+        },
+        notes_change_color: (state, action: PayloadAction<{id: number, color: string}>) => {
+            const note = state.value.find(note => note.id === action.payload.id);
+            if (note) { note.color = action.payload.color }
         }
     },
 });
