@@ -31,5 +31,5 @@ export const noteSlice = createSlice({
     },
 });
 
-export const { notes_init, notes_created, notes_toggle_importance, notes_deleted, notes_edited } = noteSlice.actions;
+export const { notes_init, notes_created, notes_toggle_importance, notes_deleted, notes_edited, notes_change_color } = noteSlice.actions;
 export default noteSlice.reducer;
