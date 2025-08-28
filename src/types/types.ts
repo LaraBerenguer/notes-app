@@ -2,6 +2,7 @@ export type NewNote = {
     important: boolean;
     title: string;
     content: string;
+    color: string;
 };
 
 export type Note = NewNote & {
