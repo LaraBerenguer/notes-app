@@ -10,9 +10,10 @@ type NoteCardProps = {
     onClick: () => void;
     onDelete: (id: number) => void;
     onEdit: (id: number, { title, content }: Partial<Note>) => void;
+    onChangeColor: (id: number, color: string) => void;
 }
 
-const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
+const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false)
     const [editTitle, setEditTitle] = useState<string | undefined>("")
@@ -30,8 +31,12 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
         setIsEditing(false);
     };
 
+    const handleChangeColor = (selectedColor: string) => {              
+        return onChangeColor(note.id, selectedColor);
+    };
+
     return (
-        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg bg-transparent w-full" onClick={onClick}>
+        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg w-full" style={{ backgroundColor: note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
                     <div className="flex flex-col gap-2">
@@ -62,7 +67,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit }: NoteCardProps) => {
             </section>
             <section id="note-card--side" className="flex items-center">
                 <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
-                <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} /></section>
+                <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} onChangeColor={handleChangeColor} /></section>
             </section>
 
 
