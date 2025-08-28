@@ -23,6 +23,7 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
         const handleClickOutside = (event: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
                 setOpen(false);
+                setColorDropdownOpen(false);
             }
         };
         if (open) {
@@ -87,9 +88,9 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
                                     className="w-6 h-6 border-2 border-gray-100 rounded-full cursor-pointer"
                                     onClick={e => {
                                         e.stopPropagation();
-                                        setColorDropdownOpen(false);
+                                        //setColorDropdownOpen(false);
                                         onChangeColor(color);
-                                        setOpen(false);
+                                        //setOpen(false);
                                     }}
                                     aria-label={`Change color to ${color}`}
                                 />
