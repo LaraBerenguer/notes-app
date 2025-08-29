@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "serve": "json-server --watch src/data/db.json --port 3001"
+    "test": "jest"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
@@ -28,7 +27,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "jest": "^30.0.0",
-    "json-server": "^1.0.0-beta.3",
     "ts-jest": "^29.4.0",
     "typescript": "^5"
   }
