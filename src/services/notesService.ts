@@ -1,12 +1,12 @@
 import { NewNote, Note } from "@/types/types";
 
 export const getNotes = async (): Promise<Note[]> => {
-  const response = await fetch("http://localhost:3001/notes");
+  const response = await fetch("http://localhost:3000/api/notes");
   return response.json();
 };
 
 export const createNote = async (note: NewNote): Promise<Note> => {
-  const response = await fetch("http://localhost:3001/notes", {
+  const response = await fetch("http://localhost:3000/api/notes", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export const createNote = async (note: NewNote): Promise<Note> => {
 };
 
 export const deleteNote = async (id: Number): Promise<Number> => {
-  const response = await fetch(`http://localhost:3001/notes/${id}`, {
+  const response = await fetch(`http://localhost:3000/api/notes/${id}`, {
     method: 'DELETE'
   });
 
@@ -26,7 +26,7 @@ export const deleteNote = async (id: Number): Promise<Number> => {
 };
 
 export const editNote = async (id: Number, { title, content }: Partial<Note>): Promise<Note> => {
-  const response = await fetch(`http://localhost:3001/notes/${id}`, {
+  const response = await fetch(`http://localhost:3000/api/notes/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export const editNote = async (id: Number, { title, content }: Partial<Note>): P
 };
 
 export const changeNoteColor = async (id: Number, color: string): Promise<Note> => {
-  const response = await fetch(`http://localhost:3001/notes/${id}`, {
+  const response = await fetch(`http://localhost:3000/api/notes/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'

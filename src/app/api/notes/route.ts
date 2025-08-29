@@ -30,7 +30,7 @@ export async function POST(request: Request) {
         ...newNote
     };
 
-    dbData.push(dbNote);
+    dbData.notes.push(dbNote);
     await writeDB(dbData);
 
     return NextResponse.json(dbNote, { status: 201 });
