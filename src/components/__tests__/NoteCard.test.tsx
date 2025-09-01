@@ -99,6 +99,25 @@ describe("NoteCard", () => {
     });
 
     //deleting a note shows confirmation modal
+    it("shows confirmation modal when pressing delete note button", async () => {
+        const onDeleteMock = jest.fn();
+        render(
+            <NoteCard
+                note={note}
+                onClick={() => { }}
+                onEdit={() => { }}
+                onDelete={onDeleteMock}
+                onChangeColor={() => { }}
+            />
+        );
+        const user = userEvent.setup();
+        const menuButton = screen.getByLabelText("Opciones");
+        await user.click(menuButton);
+        const deleteButton = screen.getByLabelText("delete note");
+        await user.click(deleteButton);
+
+        expect(screen.getByLabelText("close modal")).toBeInTheDocument();        
+    });
     //confirming deletion calls onDelete function with correct id
     //note menu renders when clicking on the button
     //accesibility
