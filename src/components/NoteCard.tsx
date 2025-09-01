@@ -55,7 +55,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                             aria-label="Edit note content"
                         />
                         <div className="note-card--buttons flex gap-2 mt-2">
-                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit}>Save</button>
+                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
                             <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
                         </div>
 
