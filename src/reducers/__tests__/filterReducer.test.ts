@@ -1,5 +1,5 @@
 import { Filter } from "@/types/types";
-import filterReducer, { filter_important, filter_all } from "./filterReducer";
+import filterReducer, { filter_important, filter_all } from "../filterReducer";
 
 describe("filterReducer", () => {
     test("filters important notes after clicking important filter button", () => {

@@ -1,4 +1,4 @@
-import noteReducer, { notes_created, notes_deleted, notes_toggle_importance } from "./noteReducer";
+import noteReducer, { notes_created, notes_deleted, notes_toggle_importance } from "../noteReducer";
 
 describe("noteReducer", () => {
     test("returns new state after toggling importance", () => {
