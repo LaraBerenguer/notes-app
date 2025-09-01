@@ -59,19 +59,22 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
                     <button
                         className="px-4 py-2 text-left flex gap-2 hover:bg-gray-100 w-full"
                         onClick={e => { e.stopPropagation(); setOpen(false); onEdit(); }}
+                        aria-label="edit note"
                     >
-                        <Trash strokeWidth={1} size={18} /> Edit note
+                        <Pencil strokeWidth={1} size={18} /> Edit note
                     </button>
                     <button
                         className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 text-red-600 w-full"
                         onClick={e => { e.stopPropagation(); setOpen(false); onDelete(); }}
+                        aria-label="delete note"
                     >
-                        <Pencil strokeWidth={1} size={18} /> Delete note
+                        <Trash strokeWidth={1} size={18} /> Delete note
                     </button>
                     <button
                         className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 w-full"
                         onClick={e => { e.stopPropagation(); setColorDropdownOpen(!colorDropdownOpen); }}
                         ref={colorRefs.setReference}
+                        aria-label="change background color"
                     >
                         <Palette strokeWidth={1} size={18} /> Change color
                     </button>
