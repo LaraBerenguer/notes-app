@@ -31,7 +31,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
         setIsEditing(false);
     };
 
-    const handleChangeColor = (selectedColor: string) => {              
+    const handleChangeColor = (selectedColor: string) => {
         return onChangeColor(note.id, selectedColor);
     };
 
@@ -45,6 +45,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             placeholder={note.title}
+                            type="text"
                             aria-label="Edit note title"
                         />
                         <textarea

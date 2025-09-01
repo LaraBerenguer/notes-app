@@ -41,6 +41,26 @@ describe("NoteCard", () => {
         expect(screen.getByText("This is the content of the note")).toBeInTheDocument();
     });
 
+    //note menu renders when clicking on the button
+    it("shows note menu dropdown when clicking on menu button", async () => {
+        render(
+            <NoteCard
+                note={note}
+                onClick={() => { }}
+                onEdit={() => { }}
+                onDelete={() => { }}
+                onChangeColor={() => { }}
+            />
+        );
+        const user = userEvent.setup();
+        const menuButton = screen.getByLabelText("Opciones");
+        await user.click(menuButton);
+
+        expect(screen.getByLabelText("edit note")).toBeInTheDocument();
+        expect(screen.getByLabelText("delete note")).toBeInTheDocument();
+        expect(screen.getByLabelText("change background color")).toBeInTheDocument();
+    });
+
     //input and text area apear when clicking on edit button
     it("shows input and text area when clicking the edit button", async () => {
         render(
@@ -116,9 +136,61 @@ describe("NoteCard", () => {
         const deleteButton = screen.getByLabelText("delete note");
         await user.click(deleteButton);
 
-        expect(screen.getByLabelText("close modal")).toBeInTheDocument();        
+        expect(screen.getByLabelText("close modal")).toBeInTheDocument();
     });
+
     //confirming deletion calls onDelete function with correct id
-    //note menu renders when clicking on the button
+    it("confirm delete note calls onDelete funcion with correct id", async () => {
+        const onDeleteMock = jest.fn();
+        render(
+            <NoteCard
+                note={note}
+                onClick={() => { }}
+                onEdit={() => { }}
+                onDelete={onDeleteMock}
+                onChangeColor={() => { }}
+            />
+        );
+        const user = userEvent.setup();
+        const menuButton = screen.getByLabelText("Opciones");
+        await user.click(menuButton);
+        const deleteButton = screen.getByLabelText("delete note");
+        await user.click(deleteButton);
+
+        expect(screen.getByLabelText("close modal")).toBeInTheDocument();
+
+        //confirm delete button
+        const confirmDeleteButton = screen.getByLabelText("confirm delete");
+        await user.click(confirmDeleteButton);
+
+        expect(onDeleteMock).toHaveBeenCalledWith(note.id);
+    });
+
     //accesibility
+    it("edit fields have correct placeholders and are accessible", async () => {
+        render(
+            <NoteCard
+                note={note}
+                onClick={() => { }}
+                onDelete={() => { }}
+                onEdit={() => { }}
+                onChangeColor={() => { }}
+            />
+        );
+        const user = userEvent.setup();
+        const menuButton = screen.getByLabelText("Opciones");
+        await user.click(menuButton);
+        const editButton = screen.getByLabelText("edit note");
+        await user.click(editButton);
+
+        //verify placeholders
+        const titleInput = screen.getByLabelText("Edit note title");
+        const contentInput = screen.getByLabelText("Edit note content");
+        expect(titleInput).toHaveAttribute("placeholder", "Test title");
+        expect(contentInput).toHaveAttribute("placeholder", "This is the content of the note");
+
+        //verify role
+        expect(titleInput).toHaveAttribute("type", "text");
+        expect(contentInput.tagName.toLowerCase()).toBe("textarea");
+    });
 });
