@@ -31,7 +31,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
         setIsEditing(false);
     };
 
-    const handleChangeColor = (selectedColor: string) => {              
+    const handleChangeColor = (selectedColor: string) => {
         return onChangeColor(note.id, selectedColor);
     };
 
@@ -45,15 +45,18 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             placeholder={note.title}
+                            type="text"
+                            aria-label="Edit note title"
                         />
                         <textarea
                             className="text-sm text-gray-700 resize-none"
                             value={editContent}
                             onChange={e => setEditContent(e.target.value)}
                             placeholder={note.content}
+                            aria-label="Edit note content"
                         />
                         <div className="note-card--buttons flex gap-2 mt-2">
-                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit}>Save</button>
+                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
                             <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
                         </div>
 
@@ -80,12 +83,14 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                     <button
                         className="px-3 py-1 bg-gray-200 text-gray-800 rounded"
                         onClick={() => setIsModalOpen(false)}
+                        aria-label="cancel delete"
                     >
                         Cancel
                     </button>
                     <button
                         className="px-3 py-1 bg-red-500 text-white rounded"
                         onClick={confirmDelete}
+                        aria-label="confirm delete"
                     >
                         Delete
                     </button>
