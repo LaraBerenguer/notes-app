@@ -4,9 +4,9 @@ import { RootState } from "../../store/store";
 import { Filter, Note } from "@/types/types";
 import { notes_toggle_importance } from "@/reducers/noteReducer";
 import NoteCard from "./NoteCard";
-import useDeleteNote from "@/hooks/useDeleteNote";
-import useEditNote from "@/hooks/useEditNote";
-import useChangeColorNote from "@/hooks/useChangeColorNote";
+import useDeleteNote from "@/hooks/notes/useDeleteNote";
+import useEditNote from "@/hooks/notes/useEditNote";
+import useChangeColorNote from "@/hooks/notes/useChangeColorNote";
 import { getFilteredNotes } from "@/utils/getFilteredNotes";
 import styles from "./NotesList.module.css";
 

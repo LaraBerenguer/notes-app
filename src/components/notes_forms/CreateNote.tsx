@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import useCreateNote from "@/hooks/useCreateNote";
+import useCreateNote from "@/hooks/notes/useCreateNote";
 
 const CreateNoteForm = () => {
     const [noteContent, setNoteContent] = useState<string>("");
