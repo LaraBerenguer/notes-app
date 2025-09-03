@@ -46,7 +46,7 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
                 ref={refs.setReference}
                 aria-label="Opciones"
                 onClick={e => { e.stopPropagation(); setOpen(!open); }}
-                className="ml-2 flex items-center justify-center"
+                className="ml-2 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-600 "
             >
                 <MoreVertical strokeWidth={1} size={18} />
             </button>
@@ -54,24 +54,24 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
                 <div
                     ref={refs.setFloating}
                     style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
-                    className="bg-white rounded shadow-md"
+                    className="bg-white dark:bg-[#202124] rounded shadow-md"
                 >
                     <button
-                        className="px-4 py-2 text-left flex gap-2 hover:bg-gray-100 w-full"
+                        className="px-4 py-2 text-left flex gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 w-full"
                         onClick={e => { e.stopPropagation(); setOpen(false); onEdit(); }}
                         aria-label="edit note"
                     >
                         <Pencil strokeWidth={1} size={18} /> Edit note
                     </button>
                     <button
-                        className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 text-red-600 w-full"
+                        className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 dark:hover:bg-gray-600 text-red-600 w-full"
                         onClick={e => { e.stopPropagation(); setOpen(false); onDelete(); }}
                         aria-label="delete note"
                     >
                         <Trash strokeWidth={1} size={18} /> Delete note
                     </button>
                     <button
-                        className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 w-full"
+                        className="px-4 py-2 text-left flex gap-2 whitespace-nowrap hover:bg-gray-100 dark:hover:bg-gray-600 w-full"
                         onClick={e => { e.stopPropagation(); setColorDropdownOpen(!colorDropdownOpen); }}
                         ref={colorRefs.setReference}
                         aria-label="change background color"
@@ -82,9 +82,9 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
                         <div
                             ref={colorRefs.setFloating}
                             style={{ position: colorStrategy, top: colorY ?? 0, left: colorX ?? 0 }}
-                            className="bg-white rounded shadow-md flex gap-2 p-2"
+                            className="rounded shadow-md flex gap-2 p-2"
                         >
-                            {["#FFD700", "#FF69B4", "#90EE90", "#87CEEB", "transparent"].map(color => (
+                            {["#F6C445", "#FF99C8", "#8BC34A", "#4FC3F7", "transparent"].map(color => (
                                 <button
                                     key={color}
                                     style={{ backgroundColor: color }}
