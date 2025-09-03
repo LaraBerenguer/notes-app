@@ -1,16 +1,6 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*html[data-theme='dark'] body {
-  background-color: #202124;
-  color: #e8eaed;
-}
-
-html[data-theme='light'] body {
-  background-color: #ffffff;
-  color: #171717;
-}*/
-
 html,
 body {
   max-width: 100vw;
