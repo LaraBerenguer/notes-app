@@ -19,16 +19,24 @@
       "content": "Create a portfolio"
     },
     {
-      "id": "f819",
+      "id": 1756832295512,
       "important": false,
       "title": "Hi",
-      "content": "Holaaaaaa"
+      "content": "Holaaaaaa",
+      "color": "#F6C445"
     },
     {
-      "id": "c688",
+      "id": 1756832295534,
       "important": false,
       "title": "Test nota larga",
-      "content": "Esto es una nota larga para ver si la nota se adapta al contenido de la nota y, de esta forma, comprobar que el estilo masonry está funcionando porque parece que no es el caso, la verdad"
+      "content": "Esto es una nota larga para ver si la nota se adapta al contenido de la nota y, de esta forma, comprobar que el estilo masonry está funcionando porque parece que no es el caso, la verdad",
+      "color": "transparent"
+    },
+    {
+      "id": 1756832295553,
+      "important": false,
+      "title": "Another note",
+      "content": "yay"
     }
   ]
 }
