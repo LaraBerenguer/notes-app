@@ -41,7 +41,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                 {isEditing ? (
                     <div className="flex flex-col gap-2">
                         <input
-                            className="text-lg font-semibold border-b"
+                            className="text-lg font-semibold focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             placeholder={note.title}
@@ -49,22 +49,21 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                             aria-label="Edit note title"
                         />
                         <textarea
-                            className="text-sm text-gray-700 resize-none"
+                            className="text-sm text-gray-700 resize-none focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
                             value={editContent}
                             onChange={e => setEditContent(e.target.value)}
                             placeholder={note.content}
                             aria-label="Edit note content"
                         />
                         <div className="note-card--buttons flex gap-2 mt-2">
-                            <button className="px-2 py-1 bg-green-500 text-white rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
+                            <button className="px-2 py-1 bg-green-300 text-white rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
                             <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
                         </div>
-
                     </div>
                 ) : (
                     <>
                         <section id="title" className="text-lg font-semibold mb-1">{note.title}</section>
-                        <section id="content" className="text-sm text-gray-700 whitespace-pre-line">{note.content}</section>
+                        <section id="content" className="text-sm whitespace-pre-line">{note.content}</section>
                     </>
                 )}
             </section>
@@ -75,7 +74,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
 
 
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <h4 className="text-lg font-semibold mb-2">Delete note?</h4>
+                <h4 className="text-black text-lg font-semibold mb-2">Delete note?</h4>
                 <p className="text-sm text-gray-600 mb-4">
                     This can't be undone
                 </p>
