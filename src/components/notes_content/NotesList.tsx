@@ -7,18 +7,13 @@ import NoteCard from "./NoteCard";
 import useDeleteNote from "@/hooks/useDeleteNote";
 import useEditNote from "@/hooks/useEditNote";
 import useChangeColorNote from "@/hooks/useChangeColorNote";
+import { getFilteredNotes } from "@/utils/getFilteredNotes";
 import styles from "./NotesList.module.css";
 
 const NotesList = () => {
     const notes: Note[] = useSelector((state: RootState) => state.notes.value);
     const filter: Filter = useSelector((state: RootState) => state.filter.value);
     const dispatch = useDispatch();
-
-    const getFilteredNotes = (notes: Note[], filter: Filter) => { //utils
-        if (filter === "important") return notes.filter(note => note.important === true);
-        if (filter === "not_important") return notes.filter(note => note.important === false);
-        return notes;
-    };
 
     const handleImportance = (id: number) => {
         dispatch(notes_toggle_importance(id))
@@ -31,8 +26,8 @@ const NotesList = () => {
     const handleDelete = (id: number) => {
         deleteCurrentNote(id)
     }
-    const handleEdit = (id: number, {title, content}: Partial<Note>) => {
-        editCurrentNote(id, {title, content})
+    const handleEdit = (id: number, { title, content }: Partial<Note>) => {
+        editCurrentNote(id, { title, content })
     }
 
     const handleChangeColor = (id: number, color: string) => {
