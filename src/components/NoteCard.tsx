@@ -4,6 +4,7 @@ import ImportantIcon from "./ImportantIcon";
 import { useState } from "react";
 import Modal from "./Modal";
 import NoteMenu from "./NoteMenu";
+import { Star } from "lucide-react";
 
 type NoteCardProps = {
     note: Note;
@@ -68,7 +69,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                 )}
             </section>
             <section id="note-card--side" className="flex items-center">
-                <section id="note-card--important" className="text-xs font-bold text-red-500 ml-auto">{note.important && <ImportantIcon className="inline-block text-red-500 ml-2" />}</section>
+                <section id="note-card--important" className="text-xs font-bold ml-auto">{note.important && <Star strokeWidth={2} size={18} color="#8E44AD" className="inline-block ml-2" />}</section>
                 <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} onChangeColor={handleChangeColor} /></section>
             </section>
 
