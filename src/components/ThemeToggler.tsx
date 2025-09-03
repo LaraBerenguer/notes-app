@@ -11,7 +11,7 @@ const DarkModeToggler = () => {
             className="px-3 py-1 rounded border"
             aria-label="Toggle dark mode"
         >
-            {isDark ? <section><Moon strokeWidth={1} size={18} /></section> : <section><Lightbulb strokeWidth={1} size={18} /></section>}
+            {isDark ? <section className="flex gap-2 items-center"><Lightbulb strokeWidth={1} size={18} /><span>Light Mode</span></section> : <section className="flex gap-2 items-center"><Moon strokeWidth={1} size={18} /> Dark Mode</section>}
         </button>
     );
 };
