@@ -18,9 +18,14 @@ const writeDB = async (data: Note[]) => {
 }
 
 export async function PATCH(request: Request, context: { params: { id: string } }) {
-    const { params } = context;
+    const { id: idParam } = await context.params;
+    const id = Number(idParam);
+    if (isNaN(id)) {
+        return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
+    };
+
     const db = await readDB();
-    const index = db.notes.findIndex((note: Note) => note.id === Number(params.id));
+    const index = db.notes.findIndex((note: Note) => note.id === id);
     if (index === -1) return NextResponse.json({ error: "Note not found" }, { status: 404 });
 
     const updatedNote = await request.json();
@@ -31,9 +36,10 @@ export async function PATCH(request: Request, context: { params: { id: string } 
 }
 
 export async function DELETE(request: Request, context: { params: { id: string } }) {
-    const { params } = await context;
+    const { id: idParam } = await context.params;
+    const id = Number(idParam);
     const db = await readDB();
-    const index = db.notes.findIndex((note: Note) => note.id === Number(params.id));
+    const index = db.notes.findIndex((note: Note) => note.id === id);
     if (index === -1) return NextResponse.json({ error: "Note not found" }, { status: 404 });
 
     const deleted = db.notes.splice(index, 1);
