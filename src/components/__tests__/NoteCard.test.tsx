@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import NoteCard from "../NoteCard";
+import NoteCard from "../notes_content/NoteCard";
 import { Note } from "@/types/types";
 import React from "react";
 

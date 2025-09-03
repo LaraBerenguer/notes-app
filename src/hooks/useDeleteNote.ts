@@ -2,7 +2,6 @@
 import { notes_deleted } from "@/reducers/noteReducer";
 import { deleteNote } from "@/services/notesService";
 import { AppDispatch } from "@/store/store";
-import { Note } from "@/types/types";
 import { useDispatch } from "react-redux";
 
 const useDeleteNote = () => {

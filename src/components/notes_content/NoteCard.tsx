@@ -1,10 +1,11 @@
 "use client"
 import { Note } from "@/types/types";
-import ImportantIcon from "./ImportantIcon";
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../ui/Modal";
 import NoteMenu from "./NoteMenu";
 import { Star } from "lucide-react";
+import NoteEditForm from "../notes_forms/NoteEditForm";
+import NoteContent from "./NoteContent";
 
 type NoteCardProps = {
     note: Note;
@@ -17,19 +18,10 @@ type NoteCardProps = {
 const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false)
-    const [editTitle, setEditTitle] = useState<string | undefined>("")
-    const [editContent, setEditContent] = useState<string | undefined>("")
 
     const confirmDelete = () => {
         onDelete(note.id);
         setIsModalOpen(false);
-    };
-
-    const saveEdit = () => {
-        const newTitle = editTitle?.trim() === "" ? note.title : editTitle;
-        const newContent = editContent?.trim() === "" ? note.content : editContent;
-        onEdit(note.id, { title: newTitle, content: newContent });
-        setIsEditing(false);
     };
 
     const handleChangeColor = (selectedColor: string) => {
@@ -40,39 +32,19 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
         <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg w-full" style={{ backgroundColor: note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
-                    <div className="flex flex-col gap-2">
-                        <input
-                            className="text-lg font-semibold focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
-                            value={editTitle}
-                            onChange={e => setEditTitle(e.target.value)}
-                            placeholder={note.title}
-                            type="text"
-                            aria-label="Edit note title"
-                        />
-                        <textarea
-                            className="text-sm text-gray-700 resize-none focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
-                            value={editContent}
-                            onChange={e => setEditContent(e.target.value)}
-                            placeholder={note.content}
-                            aria-label="Edit note content"
-                        />
-                        <div className="note-card--buttons flex gap-2 mt-2">
-                            <button className="px-2 py-1 bg-green-300 text-white rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
-                            <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
-                        </div>
-                    </div>
+                    <NoteEditForm
+                        note={note}
+                        setIsEditing={setIsEditing}
+                        onEdit={onEdit}
+                    />
                 ) : (
-                    <>
-                        <section id="title" className="text-lg font-semibold mb-1">{note.title}</section>
-                        <section id="content" className="text-sm whitespace-pre-line">{note.content}</section>
-                    </>
+                    <NoteContent note={note} />
                 )}
             </section>
             <section id="note-card--side" className="flex items-center">
                 <section id="note-card--important" className="text-xs font-bold ml-auto">{note.important && <Star strokeWidth={2} size={18} color="#8E44AD" className="inline-block ml-2" />}</section>
                 <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} onChangeColor={handleChangeColor} /></section>
             </section>
-
 
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <h4 className="text-black text-lg font-semibold mb-2">Delete note?</h4>
