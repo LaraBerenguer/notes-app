@@ -7,7 +7,7 @@ type MenuItem = {
     onClick?: () => void;
     ariaLabel?: string;
     className?: string;
-    subMenuItems?: MenuItem[]; // Submenu support
+    subMenuItems?: MenuItem[];
 };
 
 type DropdownMenuProps = {
