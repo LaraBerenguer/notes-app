@@ -5,7 +5,8 @@ const THEME_KEY = "theme";
 export function useDarkMode() {
     const [isDark, setIsDark] = useState(false);
 
-    useEffect(() => {        
+    useEffect(() => {
+
         const savedTheme = localStorage.getItem(THEME_KEY);
         if (savedTheme) {
             setIsDark(savedTheme === "dark");
@@ -18,10 +19,16 @@ export function useDarkMode() {
     }, []);
 
     const toggleDarkMode = () => {
-        const newIsDark = !isDark;
-        setIsDark(newIsDark);
-        document.documentElement.classList.toggle("dark", newIsDark);
-        localStorage.setItem(THEME_KEY, newIsDark ? "dark" : "light");
+        setIsDark((prevIsDark) => {
+            const newIsDark = !prevIsDark;
+            if (newIsDark) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            localStorage.setItem(THEME_KEY, newIsDark ? "dark" : "light");
+            return newIsDark;
+        });
     };
 
     return { isDark, toggleDarkMode };
