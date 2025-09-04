@@ -20,11 +20,10 @@ const CreateNoteForm = () => {
         addNewNote(newNote);
         setNoteContent("");
         setNoteTitle("");
-    };    
+    };
 
     const handleBlur = (e: React.FocusEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const nextFocused = e.relatedTarget as HTMLElement | null;        
+        const nextFocused = e.relatedTarget as HTMLElement | null;
         if (!nextFocused || !e.currentTarget.contains(nextFocused)) {
             handleSubmit(e);
         }
@@ -36,7 +35,7 @@ const CreateNoteForm = () => {
                 <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>
                 <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
             </label>
-            {/*close button*/}
+            <button type="submit" className="hidden"></button>
         </form>
     );
 };
