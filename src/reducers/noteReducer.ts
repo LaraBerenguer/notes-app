@@ -1,6 +1,9 @@
 import { Note } from "@/types/types";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { initialState } from "@/data/mockNotes";
+
+const initialState = {
+    value: [] as Note[],
+};
 
 export const noteSlice = createSlice({
     name: 'notes',
@@ -24,7 +27,7 @@ export const noteSlice = createSlice({
             const index = state.value.findIndex(note => note.id === action.payload.id)
             if (index !== -1) { state.value[index] = action.payload }
         },
-        notes_change_color: (state, action: PayloadAction<{id: number, color: string}>) => {
+        notes_change_color: (state, action: PayloadAction<{ id: number, color: string }>) => {
             const note = state.value.find(note => note.id === action.payload.id);
             if (note) { note.color = action.payload.color }
         }
