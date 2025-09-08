@@ -4,7 +4,7 @@ import { useState } from "react";
 type NoteEditFormProps = {
     note: Note,
     setIsEditing: React.Dispatch<React.SetStateAction<boolean>>,
-    onEdit: (id: number, { title, content }: Partial<Note>) => void
+    onEdit: ({ id, title, content }: Partial<Note>) => void
 }
 
 const NoteEditForm = ({ note, setIsEditing, onEdit }: NoteEditFormProps) => {
@@ -14,7 +14,7 @@ const NoteEditForm = ({ note, setIsEditing, onEdit }: NoteEditFormProps) => {
     const saveEdit = () => {
         const newTitle = editTitle?.trim() === "" ? note.title : editTitle;
         const newContent = editContent?.trim() === "" ? note.content : editContent;
-        onEdit(note.id, { title: newTitle, content: newContent });
+        onEdit({ id: note.id, title: newTitle, content: newContent });
         setIsEditing(false);
     };
 

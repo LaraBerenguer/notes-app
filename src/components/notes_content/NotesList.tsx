@@ -26,8 +26,8 @@ const NotesList = () => {
     const handleDelete = (id: number) => {
         deleteCurrentNote(id)
     }
-    const handleEdit = (id: number, { title, content }: Partial<Note>) => {
-        editCurrentNote(id, { title, content })
+    const handleEdit = ({ id, title, content }: Partial<Note>) => {
+        editCurrentNote({ id, title, content })
     }
 
     const handleChangeColor = (id: number, color: string) => {

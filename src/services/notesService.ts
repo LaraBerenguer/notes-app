@@ -25,7 +25,7 @@ export const deleteNote = async (id: Number): Promise<Number> => {
   return response.status;
 };
 
-export const editNote = async (id: Number, { title, content }: Partial<Note>): Promise<Note> => {
+export const editNote = async ({id, title, content }: Partial<Note>): Promise<Note> => {
   const response = await fetch(`http://localhost:3000/api/notes/${id}`, {
     method: 'PATCH',
     headers: {
