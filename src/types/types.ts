@@ -4,7 +4,7 @@ export type NewNote = {
     title: string;
     content: string;
     important: boolean;
-    color?: string;
+    color: string;
     userId?: number;
 };
 

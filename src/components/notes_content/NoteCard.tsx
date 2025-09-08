@@ -11,7 +11,7 @@ type NoteCardProps = {
     note: Note;
     onClick: () => void;
     onDelete: (id: number) => void;
-    onEdit: (id: number, { title, content }: Partial<Note>) => void;
+    onEdit: ({id, title, content }: Partial<Note>) => void;
     onChangeColor: (id: number, color: string) => void;
 }
 
@@ -29,7 +29,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
     };
 
     return (
-        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg w-full" style={{ backgroundColor: note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
+        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg w-full" style={{ backgroundColor: !note.color || note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
                     <NoteEditForm
