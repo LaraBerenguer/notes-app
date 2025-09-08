@@ -1,49 +1,35 @@
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
 import { Note } from "@/types/types";
+import { PrismaClient } from "@prisma/client";
 
-//local path
-const dbPath = path.join(process.cwd(), "src", "data", "db.json");
-
-//read temporal db aka local json file
-const readDB = async () => {
-    const data = await fs.readFile(dbPath, "utf-8");
-    return JSON.parse(data);
-}
-
-//write on temporal db
-const writeDB = async (data: Note[]) => {
-    await fs.writeFile(dbPath, JSON.stringify(data, null, 2), "utf-8");
-}
+const prisma = new PrismaClient();
 
 export async function PATCH(request: Request, context: { params: { id: string } }) {
     const { id: idParam } = await context.params;
-    const id = Number(idParam);
-    if (isNaN(id)) {
-        return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
-    };
+    const { title, content } = await request.json();
 
-    const db = await readDB();
-    const index = db.notes.findIndex((note: Note) => note.id === id);
-    if (index === -1) return NextResponse.json({ error: "Note not found" }, { status: 404 });
+    const editedNote: Note = await prisma.note.update({
+        where: {
+            id: Number(idParam),
+        },
+        data: {
+            title,
+            content,
+        },
+    });
 
-    const updatedNote = await request.json();
-    db.notes[index] = { ...db.notes[index], ...updatedNote };
-    await writeDB(db);
-
-    return NextResponse.json(db.notes[index]);
+    return NextResponse.json(editedNote);
 }
 
 export async function DELETE(request: Request, context: { params: { id: string } }) {
     const { id: idParam } = await context.params;
-    const id = Number(idParam);
-    const db = await readDB();
-    const index = db.notes.findIndex((note: Note) => note.id === id);
-    if (index === -1) return NextResponse.json({ error: "Note not found" }, { status: 404 });
 
-    const deleted = db.notes.splice(index, 1);
-    await writeDB(db);
+    const deletedNote: Note = await prisma.note.delete({
+        where: {
+            id: Number(idParam),
+        },
+    })
 
-    return NextResponse.json(deleted[0]);
+    if (!deletedNote) return NextResponse.json({ error: "Note not found" }, { status: 404 });
+    return NextResponse.json(deletedNote);
 }

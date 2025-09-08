@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 
 const useEditNote = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const editExistingNote = async (id: Number, { title, content }: Partial<Note>) => {
+    const editExistingNote = async ({ id, title, content }: Partial<Note>) => {
         try {
-            const editedNote = await editNote(id, { title, content });
+            const editedNote = await editNote({ id, title, content });
             if (editedNote) {
                 dispatch(notes_edited(editedNote));
                 return { success: true, message: "Note edited successfully" }
