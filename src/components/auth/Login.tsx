@@ -1,14 +1,24 @@
-import { signIn } from "@auth";
+"use client"
+import { signIn } from "next-auth/react";
 
 export default function SignIn() {
     return (
-        <form
-            action={async () => {
-                "use server"
-                await signIn("github")
-            }}
-        >
-            <button type="submit">Signin with GitHub</button>
-        </form>
+        <div className="flex flex-col items-center gap-3">
+            <form className="px-3 py-1 rounded-lg border-2 border-gray-100"
+                action={async () => {
+                    await signIn("github")
+                }}
+            >
+                <button type="submit">Signin with GitHub</button>
+            </form>
+            <form className="px-3 py-1 rounded-lg border-2 border-gray-100"
+                action={async () => {
+                    await signIn("google")
+                }}
+            >
+                <button type="submit">Signin with Google</button>
+            </form>
+        </div>
+
     )
 } 
