@@ -4,6 +4,9 @@ import "../styles/globals.css";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
 import { StoreProvider } from "@/store/StoreProvider";
+import Navbar from "@/components/ui/Navbar";
+import { SessionProvider } from "next-auth/react";
+import Providers from "@/components/auth/SessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Providers>
+          <Navbar />
           {children}
-        </body>
-      </html>
-    </StoreProvider>
+        </Providers>
+      </body>
+    </html>
   );
 }
