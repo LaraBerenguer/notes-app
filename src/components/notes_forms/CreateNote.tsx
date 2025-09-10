@@ -15,7 +15,7 @@ const CreateNoteForm = () => {
             important: false,
             title: noteTitle,
             content: noteContent,
-            color: "deafult"
+            color: "default"
         };
         addNewNote(newNote);
         setNoteContent("");
