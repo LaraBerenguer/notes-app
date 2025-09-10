@@ -39,7 +39,7 @@ const Navbar = () => {
                             className="rounded-full"
                         />
                         <span className="hidden sm:inline">{user.name ?? user.email}</span>
-                        <button onClick={() => signOut()} aria-label="sign out" className="px-2 py-1 border rounded">Sign out</button>
+                        <button onClick={() => signOut()} aria-label="sign out" className="px-2 py-1 border border-gray-100 rounded hover:bg-gray-100 dark:hover:bg-gray-600 transition">Sign out</button>
                     </>
                 ) : (
                     <Login />
