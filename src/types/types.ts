@@ -18,6 +18,11 @@ export type NotesState = {
     value: Note[];
 }; //to do remove
 
+export type NoteForRedux = Omit<Note, "createdAt" | "updatedAt"> & {
+    createdAt: string;
+    updatedAt: string;
+};
+
 export type Filter = "all" | "important" | "not_important";
 
 export type FiltersState = {
