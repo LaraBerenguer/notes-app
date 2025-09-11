@@ -1,6 +1,6 @@
 import { Note as PrismaNote, User as PrismaUser } from "@prisma/client";
 
-export type NewNote = {    
+export type NewNote = {
     title: string;
     content: string;
     important: boolean;
@@ -18,9 +18,25 @@ export type NotesState = {
     value: Note[];
 }; //to do remove
 
+export type NoteForRedux = Omit<Note, "createdAt" | "updatedAt"> & {
+    createdAt: string;
+    updatedAt: string;
+};
+
 export type Filter = "all" | "important" | "not_important";
 
 export type FiltersState = {
     value: Filter;
+};
+
+export type User = {
+    id?: string | number;
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+} | null;
+
+export type UserState = {
+    value: User;
 };
 

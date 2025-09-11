@@ -1,18 +1,18 @@
-import { Note } from "@/types/types";
+import { Note, NoteForRedux } from "@/types/types";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: [] as Note[],
+    value: [] as NoteForRedux[],
 };
 
 export const noteSlice = createSlice({
     name: 'notes',
     initialState,
     reducers: {
-        notes_init: (state, action: PayloadAction<Note[]>) => {
+        notes_init: (state, action: PayloadAction<NoteForRedux[]>) => {
             state.value = action.payload;
         },
-        notes_created: (state, action: PayloadAction<Note>) => {
+        notes_created: (state, action: PayloadAction<NoteForRedux>) => {
             state.value.push(action.payload)
         },
         notes_toggle_importance: (state, action: PayloadAction<Number>) => {
@@ -23,7 +23,7 @@ export const noteSlice = createSlice({
         notes_deleted: (state, action: PayloadAction<Number>) => {
             state.value = state.value.filter(note => note.id != action.payload);
         },
-        notes_edited: (state, action: PayloadAction<Note>) => {
+        notes_edited: (state, action: PayloadAction<NoteForRedux>) => {
             const index = state.value.findIndex(note => note.id === action.payload.id)
             if (index !== -1) { state.value[index] = action.payload }
         },
