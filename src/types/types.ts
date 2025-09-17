@@ -5,14 +5,16 @@ export type NewNote = {
     content: string;
     important: boolean;
     color: string;
-    userId?: number;
+    userId?: string | null;
 };
 
 export type Note = PrismaNote;
 
-export type EditNote = NewNote & {
-    id: number
-}
+export type EditNote = {
+    id: number;
+    title: string | undefined;
+    content: string | undefined;
+};
 
 export type NotesState = {
     value: Note[];
@@ -40,3 +42,6 @@ export type UserState = {
     value: User;
 };
 
+export type EditGuestNoteResult =
+    | { success: true; note: NoteForRedux }
+    | { success: false; message: string };
