@@ -1,7 +1,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { Filter, Note } from "@/types/types";
+import { Filter, Note, NoteForRedux } from "@/types/types";
 import { notes_toggle_importance } from "@/reducers/noteReducer";
 import NoteCard from "./NoteCard";
 import useDeleteNote from "@/hooks/notes/useDeleteNote";
@@ -11,7 +11,7 @@ import { getFilteredNotes } from "@/utils/getFilteredNotes";
 import styles from "./NotesList.module.css";
 
 const NotesList = () => {
-    const notes: Note[] = useSelector((state: RootState) => state.notes.value);
+    const notes: NoteForRedux[] = useSelector((state: RootState) => state.notes.value);
     const filter: Filter = useSelector((state: RootState) => state.filter.value);
     const dispatch = useDispatch();
 

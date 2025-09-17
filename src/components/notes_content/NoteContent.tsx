@@ -1,7 +1,7 @@
-import { Note } from "@/types/types";
+import { Note, NoteForRedux } from "@/types/types";
 
 type NoteContentProps = {
-    note: Note;
+    note: NoteForRedux;
 };
 
 const NoteContent = ({ note }: NoteContentProps) => {

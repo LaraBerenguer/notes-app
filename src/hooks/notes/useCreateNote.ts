@@ -11,12 +11,12 @@ import { useDispatch } from "react-redux";
 const useCreateNote = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { data: session } = useSession();
-    const addNewNote = async (note: NewNote) => {
+    const addNewNote = async (note: NewNote) => { //to do add error handling
         if (!session) {
             //without user session from localStorage
             //async?
-            saveGuestNote(note);
             const reduxNote = parseLocalNote(note)
+            saveGuestNote(reduxNote);            
             dispatch(notes_created(reduxNote));
         } else {
             //with user session from db
