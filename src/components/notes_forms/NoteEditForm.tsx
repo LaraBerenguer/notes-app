@@ -1,10 +1,10 @@
-import { Note } from "@/types/types";
+import { EditNote, Note, NoteForRedux } from "@/types/types";
 import { useState } from "react";
 
 type NoteEditFormProps = {
-    note: Note,
+    note: NoteForRedux,
     setIsEditing: React.Dispatch<React.SetStateAction<boolean>>,
-    onEdit: ({ id, title, content }: Partial<Note>) => void
+    onEdit: ({ id, title, content }: EditNote) => void
 }
 
 const NoteEditForm = ({ note, setIsEditing, onEdit }: NoteEditFormProps) => {

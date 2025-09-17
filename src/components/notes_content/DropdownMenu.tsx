@@ -45,14 +45,15 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
 
     return (
         <div ref={menuRef} className={`relative ${className}`}>
-            <div ref={refs.setReference} onClick={() => setOpen(!open)}>
+            <button ref={refs.setReference} onClick={() => setOpen(!open)} aria-label="Opciones" style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
                 {trigger}
-            </div>
+            </button>
             {open && (
                 <div
                     ref={refs.setFloating}
                     style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
                     className={`bg-white dark:bg-[#202124] rounded shadow-md ${menuClassName}`}
+                    aria-label="Opciones"
                 >
                     {items.map((item, index) => (
                         <div key={index} className="relative">
