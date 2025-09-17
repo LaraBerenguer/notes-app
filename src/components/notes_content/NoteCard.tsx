@@ -1,5 +1,5 @@
 "use client"
-import { Note, NoteForRedux } from "@/types/types";
+import { EditNote, Note, NoteForRedux } from "@/types/types";
 import { useState } from "react";
 import Modal from "../ui/Modal";
 import NoteMenu from "./NoteMenu";
@@ -11,7 +11,7 @@ type NoteCardProps = {
     note: NoteForRedux;
     onClick: () => void;
     onDelete: (id: number) => void;
-    onEdit: ({id, title, content }: Partial<Note>) => void;
+    onEdit: ({id, title, content }: EditNote) => void;
     onChangeColor: (id: number, color: string) => void;
 }
 

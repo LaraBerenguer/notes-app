@@ -1,7 +1,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { Filter, Note, NoteForRedux } from "@/types/types";
+import { EditNote, Filter, Note, NoteForRedux } from "@/types/types";
 import { notes_toggle_importance } from "@/reducers/noteReducer";
 import NoteCard from "./NoteCard";
 import useDeleteNote from "@/hooks/notes/useDeleteNote";
@@ -26,7 +26,7 @@ const NotesList = () => {
     const handleDelete = (id: number) => {
         deleteCurrentNote(id)
     }
-    const handleEdit = ({ id, title, content }: Partial<Note>) => {
+    const handleEdit = ({ id, title, content }: EditNote) => {
         editCurrentNote({ id, title, content })
     }
 
