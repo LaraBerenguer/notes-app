@@ -54,3 +54,24 @@ export const editGuestNotes = ({ id, title, content }: EditNote): EditGuestNoteR
         return { success: false, message: "Error editing note, please try again" };
     }
 };
+
+export const deleteGuestNotes = (id: Number) => {
+    try {
+        const notes = getGuestNotes();
+        const updatedNotes = notes.filter(note => note.id !== id);
+
+        if (updatedNotes.length === notes.length) {
+            return { success: false, message: "We can't find your note!" };
+        }
+
+        localStorage.setItem("localStorageNotes", JSON.stringify(updatedNotes));
+        return { success: true, status: 200, message: "Note deleted!" };
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error("Error deleting note, try again", error.message);
+        } else {
+            console.error("Error deleting note, try again", error);
+        }
+        return { success: false, message: "Error deleting note, please try again" };
+    }
+};
