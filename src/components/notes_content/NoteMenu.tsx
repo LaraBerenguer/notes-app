@@ -52,6 +52,7 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
         <DropdownMenu
             trigger={<MoreVertical strokeWidth={1} size={18} />}
             items={menuItems}
+            aria-label="Opciones"
         />
     );
 };

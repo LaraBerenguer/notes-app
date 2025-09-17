@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NoteCard from "../notes_content/NoteCard";
-import { Note } from "@/types/types";
+import { Note, NoteForRedux } from "@/types/types";
 import React from "react";
 
 /*jest.mock("../NoteMenu", () => {
@@ -11,12 +11,15 @@ import React from "react";
 });*/
 
 describe("NoteCard", () => {
-    const note: Note = {
+    const note: NoteForRedux = {
         id: 1,
         title: "Test title",
         content: "This is the content of the note",
         color: "default",
         important: false,
+        createdAt: "today",
+        updatedAt: "today",
+        userId: null,
     };
 
 
@@ -112,7 +115,8 @@ describe("NoteCard", () => {
         const saveEditButton = screen.getByLabelText("Save edit note");
         await user.click(saveEditButton);
 
-        expect(onEditMock).toHaveBeenCalledWith(editedNote.id, {
+        expect(onEditMock).toHaveBeenCalledWith({
+            id: editedNote.id,
             title: editedNote.title,
             content: editedNote.content,
         });
