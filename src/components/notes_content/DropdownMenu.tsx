@@ -45,7 +45,7 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
 
     return (
         <div ref={menuRef} className={`relative ${className}`}>
-            <button ref={refs.setReference} onClick={() => setOpen(!open)} aria-label="Opciones" style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+            <button ref={refs.setReference} onClick={() => setOpen(!open)} aria-label="Opciones" className="bg-transparent border-none p-1 cursor-pointer rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-600">
                 {trigger}
             </button>
             {open && (
