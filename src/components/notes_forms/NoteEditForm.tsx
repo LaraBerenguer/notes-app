@@ -29,7 +29,7 @@ const NoteEditForm = ({ note, setIsEditing, onEdit }: NoteEditFormProps) => {
                 aria-label="Edit note title"
             />
             <textarea
-                className="text-sm text-gray-700 resize-none focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
+                className="text-sm text-gray-700 h-32 resize-y focus:border-gray-100 active:border-gray-100 border-2 border-transparent rounded"
                 value={editContent}
                 onChange={e => setEditContent(e.target.value)}
                 placeholder={note.content}
