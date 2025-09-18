@@ -6,7 +6,7 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-roboto);  
+  font-family: var(--font-roboto);
 }
 
 .main {
@@ -14,4 +14,25 @@
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-roboto);
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    padding: 25px 45px;
+    max-width: 100%;
+  }
 }
