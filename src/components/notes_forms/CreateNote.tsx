@@ -33,7 +33,7 @@ const CreateNoteForm = () => {
         <form className="flex flex-col gap-2 border-2 border-gray-100 shadow-md dark:shadow-black p-4 rounded-lg " onSubmit={handleSubmit} onBlur={handleBlur}>
             <label className="create-note-inputs flex flex-col gap-2">
                 <input name="noteTitle" value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)} placeholder="Title"></input>
-                <input name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..."></input>
+                <textarea name="noteContent" value={noteContent} onChange={(e) => setNoteContent(e.target.value)} placeholder="Hello one and all..." rows={1} className="field-sizing-content"></textarea>
             </label>
             <button type="submit" className="hidden"></button>
         </form>
