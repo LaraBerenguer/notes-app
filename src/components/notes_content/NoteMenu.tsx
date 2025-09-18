@@ -28,7 +28,6 @@ const NoteMenu = ({ onEdit, onDelete, onChangeColor }: NoteMenuProps) => {
             icon: <Trash strokeWidth={1} size={18} />,
             onClick: onDelete,
             ariaLabel: "delete note",
-            className: "text-red-600",
         },
         {
             label: "Change color",

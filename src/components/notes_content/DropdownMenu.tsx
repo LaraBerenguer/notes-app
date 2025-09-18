@@ -52,7 +52,7 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
                 <div
                     ref={refs.setFloating}
                     style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
-                    className={`bg-white dark:bg-[#202124] rounded shadow-md ${menuClassName}`}
+                    className={`bg-white dark:bg-[#202124] rounded shadow-md dark:border-1 dark:border-white/50 ${menuClassName}`}
                     aria-label="Opciones"
                 >
                     {items.map((item, index) => (
@@ -66,7 +66,7 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
                                         setOpen(false);
                                     }
                                 }}
-                                className={`px-4 py-2 text-left flex gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 w-full ${item.className}`}
+                                className={`px-4 py-2 text-left flex gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 w-full transition ${item.className}`}
                                 aria-label={item.ariaLabel || item.label}
                             >
                                 {item.icon}
