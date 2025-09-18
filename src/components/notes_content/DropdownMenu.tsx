@@ -51,7 +51,7 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
             {open && (
                 <div
                     ref={refs.setFloating}
-                    style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
+                    style={{ position: strategy, top: y ?? 0, left: x ?? 0, zIndex: 1000 }}
                     className={`bg-white dark:bg-[#202124] rounded shadow-md dark:border-1 dark:border-white/50 ${menuClassName}`}
                     aria-label="Opciones"
                 >
