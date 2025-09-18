@@ -16,9 +16,7 @@ export default async function Home() {
     : [];
   return (
     <div className={`${styles.page} bg-white dark:bg-[#202124] text-[#171717] dark:text-[#e8eaed]`}>
-      <main className={styles.main}>        
-        <CreateNoteForm />
-        <Filter />
+      <main className={styles.main}>
         <NotesInit notes={notes} />
         <NotesList />
       </main>
