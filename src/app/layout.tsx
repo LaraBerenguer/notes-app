@@ -26,7 +26,6 @@ export default function RootLayout({
       <body className={`${roboto.variable}`}>
         <Providers>
           <Navbar />
-          <Toolbar />
           {children}
         </Providers>
       </body>

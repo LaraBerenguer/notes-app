@@ -6,6 +6,7 @@ import NotesInit from "@/components/init/NotesInit";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@auth";
 import { PrismaClient } from "@prisma/client";
+import Toolbar from "@/components/ui/Toolbar";
 
 const prisma = new PrismaClient();
 
@@ -17,6 +18,7 @@ export default async function Home() {
   return (
     <div className={`${styles.page} bg-white dark:bg-[#202124] text-[#171717] dark:text-[#e8eaed]`}>
       <main className={styles.main}>
+        <Toolbar />
         <NotesInit notes={notes} />
         <NotesList />
       </main>
