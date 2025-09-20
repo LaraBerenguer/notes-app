@@ -36,8 +36,8 @@ const NoteEditForm = ({ note, setIsEditing, onEdit }: NoteEditFormProps) => {
                 aria-label="Edit note content"
             />
             <div className="note-card--buttons flex gap-2 mt-2">
-                <button className="px-2 py-1 bg-pink-300 text-gray-800 rounded" onClick={saveEdit} aria-label="Save edit note">Save</button>
-                <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
+                <button className="px-2 py-1 bg-pink-300 text-gray-800 rounded hover:shadow-sm dark:shadow-black transition" onClick={saveEdit} aria-label="Save edit note">Save</button>
+                <button className="px-2 py-1 bg-gray-200 text-gray-800 rounded hover:shadow-sm dark:shadow-black transition" onClick={() => setIsEditing(false)}>Cancel</button>
             </div>
         </div>
     )
