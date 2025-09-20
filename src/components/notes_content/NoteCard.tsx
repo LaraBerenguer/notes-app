@@ -53,18 +53,18 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                 </p>
                 <div className="flex justify-end gap-2">
                     <button
+                        className="px-3 py-1 bg-pink-300 text-black rounded"
+                        onClick={confirmDelete}
+                        aria-label="confirm delete"
+                    >
+                        Delete
+                    </button>
+                    <button
                         className="px-3 py-1 bg-gray-200 text-gray-800 rounded"
                         onClick={() => setIsModalOpen(false)}
                         aria-label="cancel delete"
                     >
                         Cancel
-                    </button>
-                    <button
-                        className="px-3 py-1 bg-red-500 text-white rounded"
-                        onClick={confirmDelete}
-                        aria-label="confirm delete"
-                    >
-                        Delete
                     </button>
                 </div>
             </Modal>
