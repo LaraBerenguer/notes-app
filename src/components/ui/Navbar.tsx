@@ -28,7 +28,10 @@ const Navbar = () => {
 
     return (
         <nav className="w-full px-4 py-2 flex items-center justify-between bg-white dark:bg-[#202124] text-[#171717] dark:text-[#e8eaed]">
-            <div className="navbar--left text-lg font-bold">Notes App</div>
+            <div className="navbar--left text-lg font-bold flex items-center gap-2">
+                <div className="navbar--logo">Notes App</div>
+                <Image src="/logo-192.png" alt="Logo" height={20} width={20} className="h-5 w-5"/>
+            </div>
             <div className="navbar--right flex gap-4">
                 <DarkModeToggler />
                 <div className="navbar--login-section flex items-center gap-3">
