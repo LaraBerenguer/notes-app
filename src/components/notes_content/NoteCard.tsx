@@ -29,7 +29,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
     };
 
     return (
-        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-2 border-gray-100 p-4 rounded-lg w-full" style={{ backgroundColor: !note.color || note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
+        <div className="note-card break-inside-avoid flex flex-col mb-[5%] border-1 border-gray-100 p-4 rounded-lg w-full hover:shadow-sm dark:shadow-black transition" style={{ backgroundColor: !note.color || note.color === "default" ? "transparent" : note.color }} onClick={onClick}>
             <section id="note-card--content">
                 {isEditing ? (
                     <NoteEditForm
@@ -53,18 +53,18 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                 </p>
                 <div className="flex justify-end gap-2">
                     <button
-                        className="px-3 py-1 bg-gray-200 text-gray-800 rounded"
-                        onClick={() => setIsModalOpen(false)}
-                        aria-label="cancel delete"
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        className="px-3 py-1 bg-red-500 text-white rounded"
+                        className="px-3 py-1 bg-pink-300 text-black rounded transition cursor-pointer"
                         onClick={confirmDelete}
                         aria-label="confirm delete"
                     >
                         Delete
+                    </button>
+                    <button
+                        className="px-3 py-1 bg-gray-200 text-gray-800 rounded transition cursor-pointer"
+                        onClick={() => setIsModalOpen(false)}
+                        aria-label="cancel delete"
+                    >
+                        Cancel
                     </button>
                 </div>
             </Modal>

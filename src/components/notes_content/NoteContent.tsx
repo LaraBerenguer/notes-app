@@ -7,7 +7,7 @@ type NoteContentProps = {
 const NoteContent = ({ note }: NoteContentProps) => {
     return (
         <>
-            <section id="title" className="text-lg font-semibold mb-1">{note.title}</section>
+            <section id="title" className="text-lg font-medium mb-1">{note.title}</section>
             <section id="content" className="text-sm whitespace-pre-line">{note.content}</section>
         </>
     )

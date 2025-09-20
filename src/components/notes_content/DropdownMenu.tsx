@@ -45,14 +45,14 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
 
     return (
         <div ref={menuRef} className={`relative ${className}`}>
-            <button ref={refs.setReference} onClick={() => setOpen(!open)} aria-label="Opciones" style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+            <button ref={refs.setReference} onClick={() => setOpen(!open)} aria-label="Opciones" className="bg-transparent border-none p-1 cursor-pointer rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-600">
                 {trigger}
             </button>
             {open && (
                 <div
                     ref={refs.setFloating}
-                    style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
-                    className={`bg-white dark:bg-[#202124] rounded shadow-md ${menuClassName}`}
+                    style={{ position: strategy, top: y ?? 0, left: x ?? 0, zIndex: 1000 }}
+                    className={`bg-white dark:bg-[#202124] rounded shadow-md dark:border-1 dark:border-white/50 ${menuClassName}`}
                     aria-label="Opciones"
                 >
                     {items.map((item, index) => (
@@ -66,7 +66,7 @@ const DropdownMenu = ({ trigger, items, className, menuClassName }: DropdownMenu
                                         setOpen(false);
                                     }
                                 }}
-                                className={`px-4 py-2 text-left flex gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 w-full ${item.className}`}
+                                className={`px-4 py-2 text-left flex gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 w-full transition ${item.className}`}
                                 aria-label={item.ariaLabel || item.label}
                             >
                                 {item.icon}
