@@ -1,8 +1,7 @@
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { EditNote, Filter, Note, NoteForRedux } from "@/types/types";
-import { notes_toggle_importance } from "@/reducers/noteReducer";
+import { EditNote, Filter, NoteForRedux } from "@/types/types";
 import NoteCard from "./NoteCard";
 import useDeleteNote from "@/hooks/notes/useDeleteNote";
 import useEditNote from "@/hooks/notes/useEditNote";
@@ -14,7 +13,6 @@ import useToggleImportantNote from "@/hooks/notes/useToggleImportance";
 const NotesList = () => {
     const notes: NoteForRedux[] = useSelector((state: RootState) => state.notes.value);
     const filter: Filter = useSelector((state: RootState) => state.filter.value);
-    const dispatch = useDispatch();
 
     const deleteCurrentNote = useDeleteNote();
     const editCurrentNote = useEditNote();
