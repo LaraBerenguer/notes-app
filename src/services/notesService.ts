@@ -53,3 +53,16 @@ export const changeNoteColor = async (id: Number, color: string): Promise<Note> 
   return response.json();
 };
 
+export const toggleImportance = async (id: Number, important: boolean): Promise<Note> => {
+  const response = await fetch(`/api/notes/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include',
+    body: JSON.stringify({ important })
+  });
+
+  return response.json();
+};
+

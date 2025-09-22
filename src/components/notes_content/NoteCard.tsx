@@ -3,7 +3,7 @@ import { EditNote, Note, NoteForRedux } from "@/types/types";
 import { useState } from "react";
 import Modal from "../ui/Modal";
 import NoteMenu from "./NoteMenu";
-import { Star } from "lucide-react";
+import { Flag, Star } from "lucide-react";
 import NoteEditForm from "../notes_forms/NoteEditForm";
 import NoteContent from "./NoteContent";
 
@@ -42,7 +42,7 @@ const NoteCard = ({ note, onClick, onDelete, onEdit, onChangeColor }: NoteCardPr
                 )}
             </section>
             <section id="note-card--side" className="flex items-center">
-                <section id="note-card--important" className="text-xs font-bold ml-auto">{note.important && <Star strokeWidth={2} size={18} color="#8E44AD" className="inline-block ml-2" />}</section>
+                <section id="note-card--important" className="text-xs font-bold ml-auto">{note.important && <Flag strokeWidth={4} size={18} color="#A52019" className="inline-block ml-2" />}</section>
                 <section id="note-card--menu" className=""><NoteMenu onDelete={() => setIsModalOpen(true)} onEdit={() => setIsEditing(true)} onChangeColor={handleChangeColor} aria-label="Opciones" /></section>
             </section>
 

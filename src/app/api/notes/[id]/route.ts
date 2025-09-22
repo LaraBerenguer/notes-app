@@ -6,15 +6,17 @@ const prisma = new PrismaClient();
 
 export async function PATCH(request: Request, context: { params: { id: string } }) {
     const { id: idParam } = await context.params;
-    const { title, content } = await request.json();
+    const { title, content, color, important } = await request.json();
 
     const editedNote: Note = await prisma.note.update({
         where: {
             id: Number(idParam),
         },
         data: {
-            title,
-            content,
+            ...(title !== undefined && { title }),
+            ...(content !== undefined && { content }),
+            ...(important !== undefined && { important }),
+            ...(color !== undefined && { color }),
         },
     });
 
