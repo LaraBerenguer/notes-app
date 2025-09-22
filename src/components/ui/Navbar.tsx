@@ -7,6 +7,7 @@ import type { RootState } from "@/store/store";
 import Login from "../auth/Login";
 import Image from "next/image";
 import DarkModeToggler from "./ThemeToggler";
+import LogoTooltip from "./Tooltip";
 
 const Navbar = () => {
     const { data: session, status } = useSession();
@@ -29,8 +30,10 @@ const Navbar = () => {
     return (
         <nav className="w-full px-4 py-2 flex items-center justify-between bg-white dark:bg-[#202124] text-[#171717] dark:text-[#e8eaed]">
             <div className="navbar--left text-lg font-bold flex items-center gap-2">
-                <div className="navbar--logo">Notes App</div>
-                <Image src="/logo-192.png" alt="Logo" height={20} width={20} className="h-5 w-5"/>
+                {/*<div className="navbar--logo">Notes App</div>*/}
+                <LogoTooltip text={"Welcome to my Notes App :)"}>
+                    <Image src="/logo-192.png" alt="Logo" height={20} width={20} className="h-5 w-5" />
+                </LogoTooltip>
             </div>
             <div className="navbar--right flex gap-4">
                 <DarkModeToggler />
