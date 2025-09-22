@@ -31,8 +31,17 @@
 }
 
 @media (max-width: 600px) {
-  .toolbar {
-    padding: 25px 45px;
+  .toolbar {    
     max-width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .toolbar {
+    padding: 0;
+    max-width: 100%;
+  }
+  .page {
+    display: block;
   }
 }
