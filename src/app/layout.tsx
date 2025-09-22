@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable}`}>
+      <body className={`${roboto.variable} bg-white dark:bg-[#202124]`}>
         <Providers>
           <Navbar />
           {children}
