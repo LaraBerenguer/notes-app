@@ -1,7 +1,5 @@
 import NotesList from "@/components/notes_content/NotesList";
 import styles from "./page.module.css";
-import CreateNoteForm from "@/components/notes_forms/CreateNote";
-import Filter from "@/components/filter/Filter";
 import NotesInit from "@/components/init/NotesInit";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@auth";

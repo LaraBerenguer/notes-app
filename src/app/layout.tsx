@@ -3,7 +3,6 @@ import { Roboto } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Providers from "@/components/auth/SessionProvider";
-import Toolbar from "@/components/ui/Toolbar";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -23,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable}`}>
+      <body className={`${roboto.variable} bg-white dark:bg-[#202124]`}>
         <Providers>
           <Navbar />
           {children}

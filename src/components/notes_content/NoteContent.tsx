@@ -1,4 +1,4 @@
-import { Note, NoteForRedux } from "@/types/types";
+import { NoteForRedux } from "@/types/types";
 
 type NoteContentProps = {
     note: NoteForRedux;

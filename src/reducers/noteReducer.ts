@@ -1,4 +1,4 @@
-import { Note, NoteForRedux } from "@/types/types";
+import { NoteForRedux } from "@/types/types";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
