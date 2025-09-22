@@ -1,3 +1,10 @@
-.noteList {   
+.noteList {
     columns: 250px;
+}
+
+@media (min-width: 1473px) {
+    .noteList {
+        max-width: 1473px;        
+        margin: 0 auto;
+    }
 }
