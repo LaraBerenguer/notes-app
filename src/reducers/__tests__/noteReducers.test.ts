@@ -9,14 +9,20 @@ describe("noteReducer", () => {
                     important: false,
                     title: "Title 1",
                     content: "Note test",
-                    color: "default"
+                    color: "default",
+                    userId: null,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
                 },
                 {
                     id: 2,
                     important: true,
                     title: "Title 1",
                     content: "Note test 2",
-                    color: "default"
+                    color: "default",
+                    userId: null,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
                 },
             ]
         };
@@ -40,7 +46,10 @@ describe("noteReducer", () => {
             important: false,
             title: "New Note",
             content: "Content",
-            color: "default"
+            color: "default",
+            userId: null,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
         };
 
         const action = notes_created(newNote);
@@ -58,14 +67,20 @@ describe("noteReducer", () => {
                     important: false,
                     title: "Title 1",
                     content: "Note test",
-                    color: "default"
+                    color: "default",
+                    userId: null,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
                 },
                 {
                     id: 2,
                     important: true,
                     title: "Title 2",
                     content: "Note test 2",
-                    color: "default"
+                    color: "default",
+                    userId: null,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
                 }
             ]
         };
