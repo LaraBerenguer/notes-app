@@ -4,12 +4,6 @@ import NoteCard from "../notes_content/NoteCard";
 import { Note, NoteForRedux } from "@/types/types";
 import React from "react";
 
-/*jest.mock("../NoteMenu", () => {
-    return function MockNoteMenu() {
-        return <div data-testid="note-menu">Mocked Menu</div>;
-    };
-});*/
-
 describe("NoteCard", () => {
     const note: NoteForRedux = {
         id: 1,

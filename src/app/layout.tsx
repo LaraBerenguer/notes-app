@@ -3,7 +3,6 @@ import { Roboto } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Providers from "@/components/auth/SessionProvider";
-import Toolbar from "@/components/ui/Toolbar";
 
 const roboto = Roboto({
   variable: "--font-roboto",
